@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import Header from "./Component/Header/Header";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Navber from "./Component/Navber/Navber";
+import AllProducts from "./Component/AllProducts/AllProducts";
+import { useState } from "react";
 
 function App() {
+  const [count, setCount] = useState(0);
+  const productsLength = (props) => {
+    setCount(count + 1);
+  };
+  console.log(count);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navber count={count}></Navber>
+      <AllProducts productsLength={productsLength}></AllProducts>
     </div>
   );
 }
